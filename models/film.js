@@ -9,16 +9,29 @@ module.exports = (Sequelize, sequelize) => {
     type: Sequelize.STRING
   },
   rating: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    validate:{
+      notEmpty: true,
+      notNull: true
+    }
   },
   year: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    validate:{
+      isInt: true,
+      max: 2020,
+      min: 1940
+    }
   },
   budget: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    validate:{
+      isInt: true,
+      min: 1000
+    }
   },
   gross: {
     type: Sequelize.INTEGER
-  }  
+  }
   });
 };
