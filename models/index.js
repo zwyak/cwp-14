@@ -16,7 +16,7 @@ module.exports = (Sequelize, config) => {
 
   return {
     actors,
-    films
+    films,
 
     sequelize: sequelize,
     Sequelize: Sequelize,
