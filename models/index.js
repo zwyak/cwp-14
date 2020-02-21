@@ -1,5 +1,5 @@
-const Actor = require('./turtle');
-const Film = require('./weapon');
+const Actor = require('./actor');
+const Film = require('./film');
 
 module.exports = (Sequelize, config) => {
   const sequelize = new Sequelize(config.database);
