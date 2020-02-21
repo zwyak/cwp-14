@@ -11,8 +11,7 @@ module.exports = (Sequelize, sequelize) => {
   rating: {
     type: Sequelize.STRING,
     validate:{
-      notEmpty: true,
-      notNull: true
+      notEmpty: true
     }
   },
   year: {
