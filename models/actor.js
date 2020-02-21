@@ -11,9 +11,6 @@ module.exports = (Sequelize, sequelize) => {
     birth: {
       type: Sequelize.STRING
     },
-    films: {
-      type: Sequelize.INTEGER
-    },
     liked: {
       type: Sequelize.INTEGER
     }
