@@ -15,15 +15,5 @@ setTimeout(()=>{
     console.log(films);
   })
 
-  db.films.findByPk(1).then((f) => {
-    f.createActor({
-      name: 'Иван Ургант',
-      birth: '1980-01-01',
-      liked: 100
-    }).then((a) =>{
-      console.log(a);
-    })
-  })
-
   //Bulk update
 }, 3000);
