@@ -134,10 +134,20 @@ setTimeout(() =>{
     });
   });
 
+  // 4 - Use include
+  db.films.findAll({
+    include: [{
+        model: db.actors
+    }]
+  , raw: true}).then(res =>{
+    console.log('Films and Actors:');
+    console.log(res);
+  });
+
 }, 4000);
 
 setTimeout(() =>{
-  //Bulk delete
+  //3 - Bulk delete
   db.actors.destroy({
     where:{
       liked: 0
