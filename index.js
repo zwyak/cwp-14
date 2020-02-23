@@ -118,7 +118,7 @@ setTimeout(() =>{
   .then(actors => {
     actors.forEach((item, i) => {
       db.actors.update(
-        { liked: 10000 },
+        { liked: 0 },
         { where: { id: item.actorId }}
       ).then(() =>{
         console.log('Actor was updated!');
@@ -134,4 +134,18 @@ setTimeout(() =>{
     });
   });
 
-}, 5000)
+}, 4000);
+
+setTimeout(() =>{
+  //Bulk delete
+  db.actors.destroy({
+    where:{
+      liked: 0
+    }
+  }).then(() =>{
+    db.actors.findAll({raw:true})
+    .then(actors =>{
+      console.log(actors);
+    });
+  });
+}, 5000);
