@@ -144,7 +144,7 @@ setTimeout(() =>{
     console.log(res);
   });
 
-  // 5 - scopes
+  // 5 - Scopes
   const lastFilms = db.films.scope('lastFilms');
   lastFilms.findAll({raw:true}).then(films =>{
     console.log('SCOPE');

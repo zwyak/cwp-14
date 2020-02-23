@@ -11,5 +11,12 @@ module.exports = (Sequelize, sequelize) => {
     actorId: {
       type: Sequelize.INTEGER
     }
-  });
+  },
+  {
+  hooks:{
+    afterCreate: (project, options)=>{
+      console.log('!!! Project was inserted !!!');
+    }
+  }
+});
 };
