@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const config = require('./config.json');
-const db = require('./models')(Sequelize, config)
+const db = require('./models')(Sequelize, config);
 
 setTimeout(()=>{
   //1 - Bulk create - films
@@ -142,6 +142,13 @@ setTimeout(() =>{
   , raw: true}).then(res =>{
     console.log('Films and Actors:');
     console.log(res);
+  });
+
+  // 5 - scopes
+  const lastFilms = db.films.scope('lastFilms');
+  lastFilms.findAll({raw:true}).then(films =>{
+    console.log('SCOPE');
+    console.log(films);
   });
 
 }, 4000);

@@ -32,5 +32,15 @@ module.exports = (Sequelize, sequelize) => {
   gross: {
     type: Sequelize.INTEGER
   }
-  });
+}, {
+  scopes:{
+    lastFilms:{
+      where:{
+        year:{
+          [Sequelize.Op.gt]: 2007
+        }
+      }
+    }
+  }
+});
 };
