@@ -151,6 +151,17 @@ setTimeout(() =>{
     console.log(films);
   });
 
+  // 6 - Transactions
+  db.sequelize.transaction().then((t) =>{
+    return db.actors.update({ liked: 0 }, {where: {liked: {[Sequelize.Op.gt]: 0}}} , {transaction: t})
+    .then(() =>{
+        t.rollback();
+    })
+    .catch((err) =>{
+      console.error('Rollback tran');
+    });
+  });
+
 }, 4000);
 
 setTimeout(() =>{
